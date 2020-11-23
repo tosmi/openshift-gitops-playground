@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: "Local storage namespace"
+    openshift.io/display-name: "Local storage namespace"
+  name: local-storage
