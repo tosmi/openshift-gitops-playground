@@ -25,3 +25,17 @@ spec:
   source:
     path: cluster-bootstrap/authentication
     repoURL: https://github.com/tosmi/openshift-config-argocd.git
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: local-storage
+  namespace: argocd
+spec:
+  destination:
+    namespace: local-storage
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: cluster-bootstrap/local-storage
+    repoURL: https://github.com/tosmi/openshift-config-argocd.git
