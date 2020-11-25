@@ -1,0 +1,28 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring-application-1
+  namespace: argocd
+spec:
+  destination:
+    namespace: openshift-storage
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: monitoring/examples/app1
+    repoURL: https://github.com/tosmi/openshift-config-argocd.git
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring-application-2
+  namespace: argocd
+spec:
+  destination:
+    namespace: openshift-storage
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: monitoring/examples/app2
+    repoURL: https://github.com/tosmi/openshift-config-argocd.git

@@ -1,0 +1,22 @@
+# quay.io/brancz/prometheus-example-app:v0.2.0
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-example
+  namespace: monitoring-example-1
+  labels:
+    app: prometheus-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-example
+  template:
+    metadata:
+      labels:
+        app: prometheus-example
+    spec:
+      containers:
+      - name: prometheus-example-app
+        image: quay.io/brancz/prometheus-example-app:v0.2.0
+        imagePullPolicy: IfNotPresent

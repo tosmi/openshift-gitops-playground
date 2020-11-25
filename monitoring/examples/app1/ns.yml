@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: "Example 1 for monitoring"
+    openshift.io/display-name: "Example 1 for monitoring"
+  name: monitoring-example-1
