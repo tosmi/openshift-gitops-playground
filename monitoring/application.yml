@@ -45,7 +45,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: grafana-operator
-  namespace: monitoring-example-1
+  namespace: argocd
 spec:
   destination:
     namespace: monitoring-example-1
