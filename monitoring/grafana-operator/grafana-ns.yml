@@ -4,4 +4,4 @@ metadata:
   annotations:
     openshift.io/description: "OpenShift open cluster storage namespace"
     openshift.io/display-name: "OpenShift open cluster storage namespace"
-  name: openshift-storage
+  name: monitoring-example-1
