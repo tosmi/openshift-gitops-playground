@@ -40,3 +40,17 @@ spec:
   source:
     path: monitoring/configuration
     repoURL: https://github.com/tosmi/openshift-config-argocd.git
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-operator
+  namespace: monitoring-example-1
+spec:
+  destination:
+    namespace: monitoring-example-1
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: monitoring/grafana-operator
+    repoURL: https://github.com/tosmi/openshift-config-argocd.git
