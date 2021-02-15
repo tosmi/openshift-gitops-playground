@@ -41,3 +41,16 @@ spec:
   source:
     path: cluster-bootstrap/local-storage
     repoURL: https://github.com/tosmi/openshift-config-argocd.git
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: machineconfigs
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: cluster-bootstrap/machineconfigs
+    repoURL: https://github.com/tosmi/openshift-config-argocd.git

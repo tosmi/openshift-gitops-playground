@@ -4,7 +4,7 @@ metadata:
   name: storage
 spec:
   machineConfigSelector:
-    matchExpressions
+    matchExpressions:
       - key: machineconfiguration.openshift.io/role
         operator: In
         values: 
