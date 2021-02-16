@@ -169,7 +169,7 @@ data:
   # ROOK_CSI_RBD_POD_LABELS: "key1=value1,key2=value2"
 
   # (Optional) Ceph Provisioner NodeAffinity.
-  CSI_PROVISIONER_NODE_AFFINITY: "role=storage"
+  CSI_PROVISIONER_NODE_AFFINITY: "node-role.kubernetes.io/storage="
   # (Optional) CEPH CSI provisioner tolerations list. Put here list of taints you want to tolerate in YAML format.
   # CSI provisioner would be best to start on the same nodes as other ceph daemons.
   # CSI_PROVISIONER_TOLERATIONS: |
@@ -351,7 +351,7 @@ data:
   ROOK_OBC_WATCH_OPERATOR_NAMESPACE: "true"
 
   # (Optional) Admission controller NodeAffinity.
-  ADMISSION_CONTROLLER_NODE_AFFINITY: "role=storage"
+  ADMISSION_CONTROLLER_NODE_AFFINITY: "node-role.kubernetes.io/storage="
   # (Optional) Admission controller tolerations list. Put here list of taints you want to tolerate in YAML format.
   # Admission controller would be best to start on the same nodes as other ceph daemons.
   # ADMISSION_CONTROLLER_TOLERATIONS: |
@@ -410,7 +410,7 @@ spec:
         #   value: "<PriorityClassName>"
         # (Optional) Rook Agent NodeAffinity.
         - name: AGENT_NODE_AFFINITY
-          value: "role=storage"
+          value: "node-role.kubernetes.io/storage="
         # (Optional) Rook Agent mount security mode. Can by `Any` or `Restricted`.
         # `Any` uses Ceph admin credentials by default/fallback.
         # For using `Restricted` you must have a Ceph secret in each namespace storage should be consumed from and
