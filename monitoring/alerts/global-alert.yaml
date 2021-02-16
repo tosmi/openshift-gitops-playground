@@ -1,0 +1,11 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: global-alert
+  namespace: monitoring-example-1
+spec:
+  groups:
+  - name: example
+    rules:
+    - alert: ResourceWarningAlert
+      expr: sum(namespace:kube_pod_container_resource_requests_cpu_cores:sum) / sum(kube_node_status_allocatable_cpu_cores) > 0.5
