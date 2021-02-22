@@ -5,8 +5,5 @@ metadata:
   namespace: rook-ceph
 spec:
   failureDomain: host
-  erasureCoded:
-    dataChunks: 2
-    codingChunks: 1
-  deviceClass: hdd
-
+  replicated:
+    size: 2
