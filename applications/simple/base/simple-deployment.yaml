@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-deployment
+  namespace: simple-application
+  labels:
+    app: simple
+    openshift-example: "yes"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple
+  template:
+    metadata:
+      labels:
+        app: simple
+        openshift-example: "yes"
+    spec:
+      containers:
+      - name: stdout
+        image: registry.redhat.io/ubi8/ubi:8.3
+        command:
+          - /bin/sh
+          - -ec
+          - |
+            while /bin/true; do
+              DATE=$(/bin/date)
+              echo "Tick at ${DATE}"
+              sleep 1
+            done
