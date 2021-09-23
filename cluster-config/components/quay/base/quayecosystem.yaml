@@ -1,0 +1,13 @@
+apiVersion: redhatcop.redhat.io/v1alpha1
+kind: QuayEcosystem
+metadata:
+  name: stderr-quayecosystem
+  namespace: redhat-quay
+spec:
+  quay: []
+  clair:
+    imagePullSecretName: redhat-pull-secret
+    enabled: true
+    database:
+      volumeSize: 10Gi
+      credentialsSecretName: clair-database
