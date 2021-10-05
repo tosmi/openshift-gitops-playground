@@ -1,5 +1,5 @@
 ---
-apiVersion: v3
+apiVersion: v2
 name: postgresql-subchart
 type: application
 version: 1.0.0
