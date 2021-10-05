@@ -1,0 +1,27 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgresql-subchart
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: postgresql
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: helm/postgresql-subchart/
+    repoURL: https://github.com/tosmi/openshift-config-argocd
+    targetRevision: kustomize
+  sync:
+    comparedTo:
+      destination:
+        namespace: postgresql
+        server: https://kubernetes.default.svc
+      source:
+        path: helm/postgresql-subchart/
+        repoURL: https://github.com/tosmi/openshift-config-argocd
+        targetRevision: kustomize
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
