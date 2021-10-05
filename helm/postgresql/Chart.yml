@@ -1,0 +1,10 @@
+---
+apiVersion: v3
+name: postgresql-subchart
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+dependencies:
+- name: postgresql
+  version: 10.12.2
+  repository: https://charts.bitnami.com/bitnami
