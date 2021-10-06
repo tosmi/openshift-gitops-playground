@@ -1,5 +1,21 @@
 ---
 global:
   storageClass: ceph-block
+
 persistence:
   size: 2Gi
+
+volumePermissions:
+  enabled: false
+  securityContext:
+    runAsUser: "auto"
+
+securityContext:
+  enabled: false
+
+shmVolume:
+  chmod:
+    enabled: false
+
+containerSecurityContext:
+  enabled: false
