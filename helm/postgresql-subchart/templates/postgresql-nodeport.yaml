@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "common.names.fullname" . }}-nodeport
+  namespace: {{ .Release.Namespace }}
+spec:
+  ports:
+  - name: tcp-postgresql
+    port: 5432
+    protocol: TCP
+    targetPort: tcp-postgresql
+    nodePort: 32101
+  type: NodePort
+  selector:
+    {{- include "common.labels.matchLabels" . | nindent 4 }}
+    role: primary
