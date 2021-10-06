@@ -12,5 +12,6 @@ spec:
     nodePort: 32101
   type: NodePort
   selector:
-    {{- include "common.labels.matchLabels" . | nindent 4 }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/name: postgresql
     role: primary
