@@ -1,0 +1,9 @@
+* ArgoCD installation
+
+  #+begin_src sh
+oc create route passthrough argocd --service=argocd-server --port=https --insecure-policy=Redirect
+oc adm policy add-cluster-role-to-user cluster-admin -z argocd-application-controller
+
+ARGO_ROUTE=`oc get route main-argocd-server -n argocd -o jsonpath='{.spec.host}'`
+argocd login $ARGO_ROUTE:443 --username admin --sso --insecure
+  #+end_src
